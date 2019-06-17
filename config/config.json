@@ -2,14 +2,14 @@
   "development": {
     "username": "root",
     "password": "Markus1572!!",
-    "database": "exampledb",
+    "database": "petHappydb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "Markus1572!!",
-    "database": "testdb",
+    "database": "petHappydb",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false

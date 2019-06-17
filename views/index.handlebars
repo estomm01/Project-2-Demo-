@@ -1,4 +1,4 @@
-<div id="home">
+{{!-- <div id="home">
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
@@ -30,4 +30,104 @@
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="/js/index.js"></script> --}}
+<div class="container-fluid title">
+    <nav class="navbar navbar-expand-lg navbar-light nav-links" id="navbar">
+        <a class="navbar-brand animated zoomInRight" id="heading" href="/index">Pet Happy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fas fa-align-justify" id="nav-toggler"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about-me">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Pet Care</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#portfolio-id">Videos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact-id">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" id="title-intro">
+        <h3 class="animated fadeInUpBig" id="intro-name">Where you find your perfect PET</h3>
+        <h6 class="animated fadeInUpBig" id="intro-title">Thousands of pets are looking for people like you</h6>
+        <button type="submit" onclick="window.location='/signin';" class="btn btn-outline intro-signin button p-3">Login
+            {{!-- <a class="animated fadeInUpBig all-links text" href="/signin">Login</a> --}}
+        </button>
+        <button type="submit" onclick="window.location='/signup';"class="btn btn-outline intro-signin button p-3">Signup</button>
+    </div>
+</div>
+
+{{!-- Middle Container --}}
+<div class="container-fluid full" id="about-me">
+    <div class="jumbotron">
+        <h1 class="jumbotron-heading">Find a perfect match!</h1>
+        {{!-- <hr class="my-4"> --}}
+        <div class="row">
+            <div class="col skill-box">
+                <i class="fas fa-user-plus fa-9x skills"></i><br>
+                <button type="submit" onclick="window.location='/signup';"class="btn btn-outline intro-signin button p-3">Signup</button>
+            </div>
+            <div class="col skill-box">
+                <i class="fas fa-tasks fa-9x skills"></i><br>
+                {{!-- <a href= "/quiz">Assessment --}}
+                <button type="submit" onclick="window.location='/quiz';"class="btn btn-outline intro-signin button p-3">Assessment</button>
+                    {{!-- <button id="Fill-out-assesment"> --}}
+                        {{!-- <h3>Assesment</h3> --}}
+                    {{!-- </button> --}}
+                {{!-- </a> --}}
+                {{!-- <h4>Assessment</h4> --}}
+            </div>
+            <div class="col skill-box">
+                <i class="fas fa-cat fa-9x skills"></i><br>
+                <button type="submit" onclick="window.location='/form';"class="btn btn-outline intro-signin button p-3">Find a pet!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid full-skills" id="skills">
+    <div class="jumbotron-skills">
+        <h1 class="jumbotron-heading">Videos</h1>
+        <hr class="my-4">
+        <div class="row">
+            <div class="col skill-box">
+                <video autoplay muted loop id="myVideo">
+                <source src="./videos/Cat.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+                </video>
+            </div>
+            <div class="col skill-box">
+                <video autoplay muted loop id="myVideo">
+                <source src="./videos/Dog.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+                </video>
+            </div>
+            <div class="col skill-box">
+                <video autoplay muted loop id="myVideo">
+                <source src="./videos/Hamster.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{!-- Footer --}}
+<footer>
+    <div class="container-fluid">
+        <p> &copy; Copyright 2019 | Pet Happy team</p>
+        <a href="https://github.com/estomm01/Project-2-.git" target="blank"><i class="fab fa-github fa-2x all-portfolio-links"></i></a>
+        {{!-- <a href="#" target="blank"><i class="fab fa-linkedin fa-2x all-portfolio-links"></i></a> --}}
+    </div>
+</footer>
