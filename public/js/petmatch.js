@@ -1,12 +1,12 @@
 
 //etMatch / public / assets / src / petMatch / petMatch.js;
-console.log("-===================");
+// console.log("-===================");
 //etMatch / public / assets / src / petMatch / petMatch.js
 
 
 // etMatch / public / assets / src / petMatch / petMatch.js;
 
-console.log("-===================");
+// console.log("-===================");
 //etMatch / public / assets / src / petMatch / petMatch.js
 
 
@@ -255,34 +255,8 @@ $("#start-quiz-btn").on("click", function () {
       });
 
       console.log("button clicked");
-
-      //When user submits scores...
-
-      userQuizValues = [
-        {
-          question1: scoresArray[0],
-
-          question2: scoresArray[1],
-
-          question3: scoresArray[2],
-
-          question4: scoresArray[3],
-
-          question5: scoresArray[4],
-
-          question6: scoresArray[5],
-
-          question7: scoresArray[6],
-
-          question8: scoresArray[7],
-
-          question9: scoresArray[8],
-
-          question10: scoresArray[9]
-        }
-      ];
     }
-    console.log(userQuizValues);
+    // console.log(userQuizValues);
     //create some post and get functions
 
     $("#view-results-btn").on("click", function () {
@@ -353,7 +327,7 @@ $("#start-quiz-btn").on("click", function () {
     Number(scoresArray[7])
   ];
 
-
+});
   // userQuizValues = [
   //   {
   //     question1: scoresArray[0],
@@ -374,6 +348,3 @@ $("#start-quiz-btn").on("click", function () {
 
   //   }
   // ];
-
-
-}

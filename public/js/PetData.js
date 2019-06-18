@@ -289,7 +289,6 @@ var animal = [
       catorDog: 0,
       matchScore: 17
   },
-
   {
       routeName: "cat",
       name: "Tabby",
@@ -305,24 +304,24 @@ var animal = [
       Clean: 2,
       catorDog: 0,
       matchScore: 17
-  }
+  },
 ];
 
-function closestMatch(userScore, petData) {
-  var matchIndex;
-  petData.forEach((element, i) => {
-      if(element.matchScore === userScore) {
-          matchIndex = i;
-      }
-      if( (element.matchScore + 1) === userScore) {
-          matchIndex = i;
-      }
-      if( (element.matchScore - 1) === userScore) {
-          matchIndex = i;
-      }
-  });
-  return matchIndex;
-}
+// function closestMatch(userScore, petData) {
+//   var matchIndex;
+//   petData.forEach((element, i) => {
+//       if(element.matchScore === userScore) {
+//           matchIndex = i;
+//       }
+//       if( (element.matchScore + 1) === userScore) {
+//           matchIndex = i;
+//       }
+//       if( (element.matchScore - 1) === userScore) {
+//           matchIndex = i;
+//       }
+//   });
+//   return matchIndex;
+// }
 
-const x = closestMatch(28, animal);
-console.log('Final Index is', x);
+// const x = closestMatch(28, animal);
+// console.log('Final Index is', x);

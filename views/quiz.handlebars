@@ -1,0 +1,52 @@
+
+<div class="container-fluid" id="signin-container">
+  <div class="d-flex justify-content-center h-100">
+    <div id="card-header">
+      <h1 class="page-header center aligned">Take the pet compatibility assessment<h1>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center h-100" id="quiz-card">
+    <!--User has two options. They can either...
+            take a compatability quiz or go straight to search page.-->
+    <div class="row">
+      <div class="column">
+        <div class="ui fluid card">
+          <div class="header" id="quiz-header">
+            <h2 class="text-center">Find your ideal pet</h2>
+            <!--Quiz progress bar-->
+            <div class="ui indicating progress" data-value="0" data-total="100" id="quiz-progress-bar">
+              <div class="bar"></div>
+              <div class="label"></div>
+            </div>
+          </div>
+          <div class="content center aligned">
+
+            <div id="quiz-instructions">
+              <h3><b>Instructions: </b>The pet compatibility assessment contains questions that will help us determine
+                the ideal pet for you based on your preferences, interests, and personality.</h3>
+              <h3>For an accurate match, answer the questions truthfully and don't overthink them. </h3>
+            </div>
+            <div class="ui form" id="question-div">
+              <!--Question and choices will be dynamically added to this div here when user takes quiz-->
+            </div>
+          </div>
+          <div class="extra content" id="view-quiz-results-div">
+            <button type="submit" class="btn btn-outline intro-signin button p-3 button start-quiz-btn" id="start-quiz-btn">Take Assessment</button>
+
+            {{!-- <button class="ui fluid blue button start-quiz-btn" id="start-quiz-btn">TAKE ASSESSMENT</button> --}}
+            <!--View quiz results button will be added to this div when user finishes div and quiz results are ready.-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/petmatch.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+{{!-- script src="./assets/src/modals/modals.js"></script> --}}
