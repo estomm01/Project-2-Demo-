@@ -90,11 +90,6 @@ $("#quiz-progress-bar").hide();
 
 //When start quiz button is clicked, start quiz.
 
-
-$("#start-quiz-btn").on("click", function () {
-
-  $(".start-quiz-btn").on("click", function () {
-
     $("#start-quiz-btn").on("click", function () {
 
       start();
@@ -104,28 +99,28 @@ $("#start-quiz-btn").on("click", function () {
 
 
       //create some post and get functions
-      $("#view-results-btn").on("click", function () {
+      // $("#view-results-btn").on("click", function () {
 
-        $("#match-results-modal").modal('show');
-        console.log(scoresArray);
-        $("#match-results-modal").modal({
-          closable: true
-        });
-        console.log("button clicked");
+      //   $("#match-results-modal").modal('show');
+      //   console.log(scoresArray);
+      //   $("#match-results-modal").modal({
+      //     closable: true
+      //   });
+        // console.log("button clicked");
         //When user submits scores...
-        userQuizValues = [
-          {
-            question1: scoresArray[0],
-            question2: scoresArray[1],
-            question3: scoresArray[2],
-            question4: scoresArray[3],
-            question5: scoresArray[4],
-            question6: scoresArray[5],
-            question7: scoresArray[6],
-            question8: scoresArray[7],
+        // userQuizValues = [
+        //   {
+        //     question1: scoresArray[0],
+        //     question2: scoresArray[1],
+        //     question3: scoresArray[2],
+        //     question4: scoresArray[3],
+        //     question5: scoresArray[4],
+        //     question6: scoresArray[5],
+        //     question7: scoresArray[6],
+        //     question8: scoresArray[7],
 
-          }
-        ]
+        //   }
+        // ]
 
 
 
@@ -157,10 +152,23 @@ $("#start-quiz-btn").on("click", function () {
 
       });
 
-    });
     $(document).on("click", "#view-results-btn", function () {
       // Database call:
       // Sending results to the database:
+  userQuizValues = [
+          {
+            question1: scoresArray[0],
+            question2: scoresArray[1],
+            question3: scoresArray[2],
+            question4: scoresArray[3],
+            question5: scoresArray[4],
+            question6: scoresArray[5],
+            question7: scoresArray[6],
+            question8: scoresArray[7],
+
+          }
+        ]
+
       console.log('do CRUD here');
       console.log('Line 284', userQuizValues);
       $.post("/api/new", { userQuizValues }).then(function (data) {
@@ -203,9 +211,9 @@ $("#start-quiz-btn").on("click", function () {
         $("#view-quiz-results-div").show().append(choiceBtn);
         //When user clicks the choiceBtn, push value to user's scores array and go to next question.
         $(choiceBtn).on("click", function () {
-          //console.log($(this).val());
-          scoresArray.push($(this).val());
-          // console.log(scoresArray);
+         console.log($(this).val());
+          scoresArray.push(parseInt($(this).val()));
+          console.log(scoresArray);
           //Go to the next question in the quiz.
           nextQuestion();
         });
@@ -259,75 +267,75 @@ $("#start-quiz-btn").on("click", function () {
     // console.log(userQuizValues);
     //create some post and get functions
 
-    $("#view-results-btn").on("click", function () {
+    // $("#view-results-btn").on("click", function () {
 
-      // $("#match-results-modal").modal('show');
-      console.log(scoresArray);
-      // $("#match-results-modal").modal({
-      // closable: true
-      // });
-      console.log("button clicked");
-      //When user submits scores...
-      userQuizValues = [
-        {
-          question1: scoresArray[0],
-          question2: scoresArray[1],
-          question3: scoresArray[2],
-          question4: scoresArray[3],
-          question5: scoresArray[4],
-          question6: scoresArray[5],
-          question7: scoresArray[6],
-          question8: scoresArray[7],
+    //   // $("#match-results-modal").modal('show');
+    //   console.log(scoresArray);
+    //   // $("#match-results-modal").modal({
+    //   // closable: true
+    //   // });
+    //   console.log("button clicked");
+    //   //When user submits scores...
+    //   userQuizValues = [
+    //     {
+    //       question1: scoresArray[0],
+    //       question2: scoresArray[1],
+    //       question3: scoresArray[2],
+    //       question4: scoresArray[3],
+    //       question5: scoresArray[4],
+    //       question6: scoresArray[5],
+    //       question7: scoresArray[6],
+    //       question8: scoresArray[7],
 
-        }
-      ]
+    //     }
+    //   ]
 
-      console.log(userQuizValues);
+    //   console.log(userQuizValues);
 
       // $.post("/api/new", userQuizValues)
-      $.post("/api/new", { scoresArray }).then(function (data) {
+  //     $.post("/api/new", { scoresArray }).then(function (data) {
 
-        console.log("this is your data!!!!    " + data);
-        alert("Adding info...");
-      });
+  //       console.log("this is your data!!!!    " + data);
+  //       alert("Adding info...");
+  //     });
 
-      $.get("/api/", function (data) {
-        console.log("This is your Data: " + data + "is the best match");
+  //     $.get("/api/", function (data) {
+  //       console.log("This is your Data: " + data + "is the best match");
 
-        if (data) {
-          // $("#stats").show();
-          $("#thePet").text(data);
-          $("#thePet").attr("data-match", data);
-          // $("#displaypic").text(data);
+  //       if (data) {
+  //         // $("#stats").show();
+  //         $("#thePet").text(data);
+  //         $("#thePet").attr("data-match", data);
+  //         // $("#displaypic").text(data);
 
 
-        }
-        else {
-          $("#match-results-modal").text(
-            "sorry, no match has been found, you will continue to be lonely"
-          )
-        };
+  //       }
+  //       else {
+  //         $("#match-results-modal").text(
+  //           "sorry, no match has been found, you will continue to be lonely"
+  //         )
+  //       };
 
-      });
+  //     });
 
-    });
+  //   });
 
-  });
+  // });
 
   //When user submits scores...
 
-  userQuizValues = [
-    Number(scoresArray[0]),
-    Number(scoresArray[1]),
-    Number(scoresArray[2]),
-    Number(scoresArray[3]),
-    Number(scoresArray[4]),
-    Number(scoresArray[5]),
-    Number(scoresArray[6]),
-    Number(scoresArray[7])
-  ];
+//   userQuizValues = [
+//     Number(scoresArray[0]),
+//     Number(scoresArray[1]),
+//     Number(scoresArray[2]),
+//     Number(scoresArray[3]),
+//     Number(scoresArray[4]),
+//     Number(scoresArray[5]),
+//     Number(scoresArray[6]),
+//     Number(scoresArray[7])
+//   ];
 
-});
+// });
   // userQuizValues = [
   //   {
   //     question1: scoresArray[0],
