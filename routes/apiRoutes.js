@@ -46,15 +46,6 @@ module.exports = function (app) {
     });
   });
 
-  // var userTotal = userResults.reduce((a, b) => a + b);
-  // console.log(userTotal);
-  // console.log(userInput);
-  // db.Example.create(req.body).then(function (petHappydb) {
-  //   res.json(petHappydb);
-  // });
-
-  // res.json({
-  //   fakeValue:'Just some fake values'
   app.post("/api/new", function (req, res) {
     //console.log(req.body);
     var userInput = JSON.parse(JSON.stringify(req.body, null, 2))['userQuizValues[]'];

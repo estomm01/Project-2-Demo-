@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
   $("#q1").val("1");
   $("#q2").val("2");
   $("#q3").val("3");
@@ -9,13 +9,13 @@ $(document).ready(function(){
   $("#q8").val("1");
 });
 
-$("#submit-survey").on("click", function() {
+$("#submit-survey").on("click", function () {
   event.preventDefault();
 
   function validateForm() {
     var isValid = true;
 
-    $(".form-control").each(function() {
+    $(".form-control").each(function () {
       if ($(this).val === "") {
         isValid = false;
       }
@@ -32,57 +32,57 @@ $("#submit-survey").on("click", function() {
     var ans6 = parseInt($("#q6").val());
     var ans7 = parseInt($("#q7").val());
     var ans8 = parseInt($("#q8").val());
-// Below data will hold all of the animals.
-// ===============================================================================
+    // Below data will hold all of the animals.
+    // ===============================================================================
 
-// var animal = [
-//   {
-//     routeName: "cat",
-//     name: "Siamese",
-//     role: "pet",
-//     compatability: 0,
-//     Excr: 1,
-//     Loyalty: 3,
-//     Affectionate: 5,
-//     Backyard: 2,
-//     Size: 1,
-//     Energetic: 2,
-//     match_score : 4
-//   },
-// {
-//
-//    match_score:7
-//}
-// ];
+    // var animal = [
+    //   {
+    //     routeName: "cat",
+    //     name: "Siamese",
+    //     role: "pet",
+    //     compatability: 0,
+    //     Excr: 1,
+    //     Loyalty: 3,
+    //     Affectionate: 5,
+    //     Backyard: 2,
+    //     Size: 1,
+    //     Energetic: 2,
+    //     match_score : 4
+    //   },
+    // {
+    //
+    //    match_score:7
+    //}
+    // ];
 
-    for(var i=0; i<animal.length; i++){
-      if(animal[i].Excr === ans1){
+    for (var i = 0; i < animal.length; i++) {
+      if (animal[i].Excr === ans1) {
         animal[i].match_score++;
       }
-      if(animal[i].Loyaltyr === ans2){
+      if (animal[i].Loyaltyr === ans2) {
         animal[i].match_score++;
       }
-      if(animal[i].Affectionate === ans3){
+      if (animal[i].Affectionate === ans3) {
         animal[i].match_score++
       }
-      if(animal[i].Backyard === ans4){
+      if (animal[i].Backyard === ans4) {
         animal[i].match_score++;
       }
-      if(animal[i].Size === ans5){
+      if (animal[i].Size === ans5) {
         animal[i].match_score++;
       }
-      if(animal[i].Energetic === ans6){
+      if (animal[i].Energetic === ans6) {
         animal[i].match_score++;
       }
-      if(animal[i].Clean === ans7){
+      if (animal[i].Clean === ans7) {
         animal[i].match_score++;
       }
-      if(animal[i].CatorDog === ans8){
+      if (animal[i].CatorDog === ans8) {
         animal[i].match_score++;
       }
 
     }
-//check which match_score is the hightest and that is the one your pet
+    //check which match_score is the hightest and that is the one your pet
 
     var total_score = (ans1 + ans2 + ans3 + ans4 + ans5 + ans6 + ans7 + ans8) / 8;
     var userInfo = {
@@ -96,7 +96,7 @@ $("#submit-survey").on("click", function() {
     var currentURL = window.location.origin;
     console.log(currentURL);
 
-    $.post(currentURL + "/api/examples", userInfo, function(data) {
+    $.post(currentURL + "/api/examples", userInfo, function (data) {
       console.log(data);
       //$("#match-name").text(data.name);
       $("#match-score").text("src", total_score);
