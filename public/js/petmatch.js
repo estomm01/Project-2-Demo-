@@ -83,21 +83,21 @@ $("#start-quiz-btn").on("click", function () {
 $(document).on("click", "#view-results-btn", function () {
   // Database call:
   // Sending results to the database:
-  userQuizValues =  {
-      question1: scoresArray[0],
-      question2: scoresArray[1],
-      question3: scoresArray[2],
-      question4: scoresArray[3],
-      question5: scoresArray[4],
-      question6: scoresArray[5],
-      question7: scoresArray[6],
-      question8: scoresArray[7],
-   };
+  userQuizValues = {
+    question1: scoresArray[0],
+    question2: scoresArray[1],
+    question3: scoresArray[2],
+    question4: scoresArray[3],
+    question5: scoresArray[4],
+    question6: scoresArray[5],
+    question7: scoresArray[6],
+    question8: scoresArray[7],
+  };
 
 
 
-  console.log('do CRUD here');
-  console.log('Line 284', userQuizValues);
+  // console.log('do CRUD here');
+  // console.log('Line 284', userQuizValues);
 
   $("#match-results-modal").modal("show");
 
@@ -112,7 +112,7 @@ $(document).on("click", "#view-results-btn", function () {
       $("#thePet").attr("data-match", data.matchScore);
       // $("#displaypic").text(data);
     }
-    else{
+    else {
       $("#match-results-modal").text(
         "sorry, no match has been found, you will continue to be lonely"
       )
@@ -126,8 +126,8 @@ $(document).on("click", "#view-results-btn", function () {
 function start() {
 
   $("#question-div")
-    .show()
-    .html("<h1>" + "Your results are ready!" + "</h1>");
+  // .show()
+  // .html("<h1>" + "Your results are ready!" + "</h1>");
   $("#start-quiz-btn").hide();
   $("#quiz-instructions").hide();
   //Show progress bar when quiz is started.
@@ -188,8 +188,53 @@ function findMatch() {
   //Append the resultsBtn so it shows up in the HTML.
   $("#view-quiz-results-div").append(resultsBtn);
   //When the user clicks the view results button, show match.
+  $("#match-results-modal").modal('show');
+  $("#match-results-modal").modal({
+    closable: true
+  });
+  console.log("button clicked");
+  //When user submits scores...
+  userQuizValues = [
+    {
+      question1: scoresArray[0],
+      question2: scoresArray[1],
+      question3: scoresArray[2],
+      question4: scoresArray[3],
+      question5: scoresArray[4],
+      question6: scoresArray[5],
+      question7: scoresArray[6],
+      question8: scoresArray[7],
+      question9: scoresArray[8],
+      question10: scoresArray[9]
+    }
+  ]
 
+  console.log(userQuizValues);
+
+  // $.post("/api/new", userQuizValues)
+  $.post("/api/new", userQuizValues[0])
+    .then(function (data) {
+
+      console.log("this is your data!!!!    " + data);
+      alert("Adding info...");
+    });
+
+  $.get("/api/", function (data) {
+    console.log("This is your Data: " + data + "is the best match");
+
+    if (data) {
+      // $("#stats").show();
+      $("#thePet").text(data);
+      $("#thePet").attr("data-match", data);
+      // $("#displaypic").text(data);
+    }
+    else {
+      $("#match-results-modal").text("sorry, no match has been found, you will continue to be lonely")
+    };
+  });
 };
+
+
 
 //   $("#view-results-btn").on("click", function () {
 
