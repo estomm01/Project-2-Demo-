@@ -80,48 +80,7 @@ $("#start-quiz-btn").on("click", function () {
 
 });
 
-$(document).on("click", "#view-results-btn", function () {
-  // Database call:
-  // Sending results to the database:
-  userQuizValues = {
-    question1: scoresArray[0],
-    question2: scoresArray[1],
-    question3: scoresArray[2],
-    question4: scoresArray[3],
-    question5: scoresArray[4],
-    question6: scoresArray[5],
-    question7: scoresArray[6],
-    question8: scoresArray[7],
-  };
-
-
-
-  // console.log('do CRUD here');
-  // console.log('Line 284', userQuizValues);
-
-  $("#match-results-modal").modal("show");
-
-  $("#match-results-modal").modal({
-    closable: true
-  });
-
-  $.post("/api/new", userQuizValues).then(function (data) {
-    if (data) {
-      // $("#stats").show();
-      $("#thePet").text(data);
-      $("#thePet").attr("data-match", data.matchScore);
-      // $("#displaypic").text(data);
-    }
-    else {
-      $("#match-results-modal").text(
-        "sorry, no match has been found, you will continue to be lonely"
-      )
-    };
-    console.log(data);
-    alert("Adding info...");
-  });
-
-});
+//
 //Start quiz function
 function start() {
 
@@ -229,25 +188,40 @@ function findMatch() {
       // $("#displaypic").text(data);
     }
     else {
-      $("#match-results-modal").text("sorry, no match has been found, you will continue to be lonely")
+      $("#match-results-modal").text(
+        "sorry, no match has been found, you will continue to be lonely"
+      );
     };
   });
 };
 
+//Click event for saving quiz results
+// $("#save-results").on("click", function () {
 
+//   console.log("save results button clicked");
+//   //Display success message to tell user results were saved successfully.
 
-//   $("#view-results-btn").on("click", function () {
+//   var newMatch = $("#thePet").data("match");
+//   //Grab pet name
+//   //When user clicks save results, save the match results to the database.
+//   var newMatch = {
+//     pet_match: $("#thePet").data('match'),
+//     pet_rating: userRating,
+//   };
 
-//   });
+//   //debuggging
+//   console.log(newMatch);
 
-//   console.log("button clicked");
-// }
-// // $("#view-results-btn").on("click", function () {
+//   // Send the POST request using ajax.
+//   $.ajax("/api/matches", {
+//     type: "POST",
+//     data: newMatch
+//   }).then(
+//     function () {
+//       console.log("added match results");
+//     });
 
-// // $("#match-results-modal").modal('show');
-// console.log(scoresArray);
-// // $("#match-results-modal").modal({
-// // closable: true
-// // });
-// console.log("button clicked");
-// //When user submits scores...
+  // //GET the user's saved quiz results from the database and display the results on the saved pets page so that the user can view the results later.
+  // $.get("/api/matches", function (matchData) {
+  //   console.log(matchData);
+  //   for (var i = 0; i < matchData.length; i++) {
