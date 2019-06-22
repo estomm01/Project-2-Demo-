@@ -45,12 +45,16 @@ module.exports = function (app) {
   app.get("*", function (req, res) {
     res.render("404");
   });
+  //HTML route for pet search page.
+  app.get("/petsearch", function (req, res) {
+    res.render("search");
+  });
 
-app.post("/api/new", function (req, res) {
-  var userQuizValues = req.body;
-  console.log("here is your scores array " + JSON.stringify(userQuizValues));
-  pushTolist(userQuizValues);
-});
+  app.post("/api/new", function (req, res) {
+    var userQuizValues = req.body;
+    console.log("here is your scores array " + JSON.stringify(userQuizValues));
+    pushTolist(userQuizValues);
+  });
 
 };
 
@@ -68,22 +72,22 @@ function grabInfo() {
   }
 }
 
-// function closestMatch(userScore, petData) {
-//   var matchIndex;
-//   petData.forEach((element, i) => {
-//     if (element.matchScore === userScore) {
-//       matchIndex = i;
-//     }
-//     if ((element.matchScore + 1) === userScore) {
-//       matchIndex = i;
-//     }
-//     if ((element.matchScore - 1) === userScore) {
-//       matchIndex = i;
-//     }
-//   });
-//   return matchIndex;
-//   return petData;
-// }
+function closestMatch(userScore, petData) {
+  var matchIndex;
+  petData.forEach((element, i) => {
+    if (element.matchScore === userScore) {
+      matchIndex = i;
+    }
+    if ((element.matchScore + 1) === userScore) {
+      matchIndex = i;
+    }
+    if ((element.matchScore - 1) === userScore) {
+      matchIndex = i;
+    }
+  });
+  return matchIndex;
+  return petData;
+}
 
 // const x = closestMatch(28, animal);
 // console.log('line 89 Final Index is', x);
