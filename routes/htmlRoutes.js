@@ -5,6 +5,8 @@ var myPet = [];
 var newMan = [];
 var counter = 0;
 var absoluteArray = [];
+var compatable = [];
+var dummy = [];
 module.exports = function (app) {
   // Load index page
   app.get("/", function (req, res) {
@@ -12,15 +14,15 @@ module.exports = function (app) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function (req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function (
-      petHappydb
-    ) {
-      res.render("example", {
-        example: petHappydb
-      });
-    });
-  });
+  // app.get("/example/:id", function (req, res) {
+  //   db.Example.findOne({ where: { id: req.params.id } }).then(function (
+  //     petHappydb
+  //   ) {
+  //     res.render("example", {
+  //       example: petHappydb
+  //     });
+  //   });
+  // });
 
   app.get("/signin", function (req, res) {
     res.render("signin");
@@ -49,7 +51,10 @@ module.exports = function (app) {
   app.get("/petsearch", function (req, res) {
     res.render("search");
   });
-
+  app.get("/api", function (req, res) {
+    // console.log("TESTER!!!!" + myPet[0] + myPet[1]);
+    res.json(myPet[0]);
+    });
   app.post("/api/new", function (req, res) {
     var userQuizValues = req.body;
     console.log("here is your scores array " + JSON.stringify(userQuizValues));
